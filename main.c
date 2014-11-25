@@ -52,7 +52,7 @@ static int newIntRand(){
 
 void init(int N, body* star)
 {
-  body stars[N];
+  body *stars[N];
   for (int i = 0; i <= N; i++){
     stars[i]->xpos = (350+newIntRand());
     stars[i]->ypos = (350+newIntRand());
