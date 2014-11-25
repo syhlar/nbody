@@ -52,13 +52,12 @@ static int newIntRand(){
 
 void init(int N, body* star)
 {
-  body *stars[N];
   for (int i = 0; i <= N; i++){
-    stars[i]->xpos = (350+newIntRand());
-    stars[i]->ypos = (350+newIntRand());
-    stars[i]->acceleration = 0;
-    stars[i]->speed = newRand();
-    stars[i]->force = 0;
+    (star+i)->xpos = (350+newIntRand());
+    (star+i)->ypos = (350+newIntRand());
+    (star+i)->acceleration = 0;
+    (star+i)->speed = newRand();
+    (star+i)->force = 0;
   }
 }
 
@@ -85,6 +84,10 @@ int main(int argc, char* argv[]) {
       N = atoi(argv[1]);
       iter = atoi(argv[2]);
     }
+  
+  body stars[N];
+
+  init(N, stars);
 
 #ifdef ANIMATE
   XPoint* points = malloc(sizeof(XPoint)*N);
